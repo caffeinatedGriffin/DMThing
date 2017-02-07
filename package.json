@@ -1,22 +1,7 @@
 {
   "name": "dmthing",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"npm run build:watch\" \"npm run serve\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/caffeinatedGriffin/DMThing.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/caffeinatedGriffin/DMThing/issues"
-  },
-  "homepage": "https://github.com/caffeinatedGriffin/DMThing#readme",
+  "private": true,
   "dependencies": {
     "@angular/core": "^2.4.5",
     "@angular/platform-browser": "^2.4.5",
@@ -26,11 +11,28 @@
     "@angular/forms": "~2.4.0",
     "@angular/http": "~2.4.0",
     "@angular/router": "~3.4.0",
-
     "angular-in-memory-web-api": "~0.2.4",
     "systemjs": "0.19.40",
     "core-js": "^2.4.1",
     "rxjs": "5.0.1",
     "zone.js": "^0.7.4"
-  }
+  },
+  "devDependencies": {
+    "browser-sync": "2.18.7",
+    "concurrently": "3.1.0",
+    "del-cli": "0.2.1",
+    "typescript": "2.1.5"
+  },
+  "scripts": {
+    "clean": "del-cli src/**/*.js src/**/*.js.map",
+    "serve": "browser-sync start --config bs-config.js",
+    "watch": "tsc -w",
+    "start": "tsc && concurrently \"npm run watch\" \"npm run serve\""
+  },
+  "author": "",
+  "bugs": "https://github.com/caffeinatedGriffin/DMThing/issues",
+  "description": "",
+  "homepage": "https://github.com/caffeinatedGriffin/DMThing#readme",
+  "license": "MIT",
+  "repository": "git+https://github.com/caffeinatedGriffin/DMThing.git"
 }

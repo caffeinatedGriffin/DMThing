@@ -5,7 +5,10 @@ import 'rxjs/add/observable/timer';
 
 @Component({
   selector: 'my-app',
-  template: `<h1>Hello {{name | date:'shortTime'}}</h1>`
+  template: `
+    <h1>Hello {{name | date:'shortTime'}}</h1>
+    <stat-block-detail></stat-block-detail>
+  `
 })
 export class AppComponent implements OnInit {
   private timer: Subscription;
